@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Waves, Utensils, BedDouble } from "lucide-react";
+import { ArrowRight, Waves, Utensils, Sparkles, Star } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
-  const BOOKING_URL = "https://www.ryokan.or.jp/inn/redirect_detail_english_sp/96061";
+  const BOOKING_URL = "https://www.tenawan.ne.jp/lodgment/rec/004/891/pcr.asp";
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -19,30 +19,28 @@ export default function Home() {
       
       {/* HERO SECTION */}
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-        {/* HERO IMAGE: seikoro_v5_0.jpg */}
+        {/* HERO IMAGE */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/seikoro_v5_0.jpg" 
-            alt="Seikoro Entrance" 
+            src="/images/hero.jpg" 
+            alt="Kyoto street scene" 
             className="w-full h-full object-cover"
           />
-          {/* Dark Overlay for Text Readability */}
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-washi/90" />
+          {/* Dark Gradient Overlay for Text Readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10" />
         </div>
 
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            <p className="text-white/80 tracking-[0.3em] text-sm uppercase mb-4">Est. 1831 • Kyoto</p>
             <h1 className="font-serif text-6xl md:text-8xl text-white mb-8 tracking-wide">
-              SEIKORO
+              Kyoto's Hidden Heart.
             </h1>
-            <p className="text-white/90 text-lg md:text-xl font-light tracking-wider mb-10 max-w-xl mx-auto leading-relaxed">
-              The Soul of Kyoto. A timeless sanctuary where tradition breathes.
+            <p className="text-white/90 text-2xl md:text-3xl font-light tracking-wider mb-10 max-w-3xl mx-auto leading-relaxed">
+              Where traditional hospitality meets urban energy. The only classic ryokan steps from Nishiki Market.
             </p>
             
             <Link 
@@ -61,17 +59,16 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div {...fadeIn} className="space-y-8">
             <h2 className="font-serif text-4xl md:text-5xl text-stone-900 leading-tight">
-              Silence is our <br/> <span className="italic text-moss">greatest amenity.</span>
+              A traditional sanctuary <br/> <span className="italic text-moss">in the heart of the city.</span>
             </h2>
             <p className="text-stone-600 leading-loose font-light text-lg">
-              Located in the heart of the Higashiyama district, Seikoro Ryokan has been a guardian of Kyoto's hospitality since 1831. We offer not just a room, but a return to the rhythm of nature.
+              Located steps from Nishiki Market, Ryokan Hirashin offers a rare blend of traditional hospitality and urban convenience. Experience authentic Kyoto culture without leaving the city center.
             </p>
           </motion.div>
           <div className="h-[500px] w-full bg-stone-200 relative overflow-hidden rounded-sm">
-             {/* INTRO IMAGE: Hallway looking out onto garden */}
              <img 
-               src="/images/seikoro-hallway.jpg" 
-               alt="Serene wooden hallway at Seikoro Ryokan looking out onto the garden"
+               src="/images/sanctuary.jpeg" 
+               alt="Traditional ryokan in the heart of Kyoto"
                className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2s] rounded-sm"
              />
           </div>
@@ -83,36 +80,51 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-1">
             
-            {/* ONSEN CARD: seikoro_v5_5.jpg */}
+            {/* MAIKO EXPERIENCE CARD */}
             <div className="group relative h-[600px] overflow-hidden cursor-pointer">
-              <img src="/images/seikoro_v5_5.jpg" alt="Onsen" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-90" />
+              <img src="/images/maiko.png" alt="Maiko Experience" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-90" />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
-              <div className="absolute bottom-10 left-10 text-white">
+              {/* Gradient overlay at bottom for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+              <div className="absolute bottom-10 left-10 right-10 text-white z-10">
+                <Sparkles className="w-8 h-8 mb-4 opacity-80" />
+                <h3 className="font-serif text-3xl mb-2">The Maiko Experience</h3>
+                <p className="text-white/80 font-light text-sm tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">PRIVATE DINING WITH A MAIKO</p>
+                <p className="text-white/90 font-light text-base leading-relaxed mt-3 opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500 ease-out">
+                  Dine privately with a Geiko or Maiko, enjoying traditional dance and ozashiki-asobi games.
+                </p>
+              </div>
+            </div>
+
+            {/* GRAND BATH CARD */}
+            <div className="group relative h-[600px] overflow-hidden cursor-pointer">
+              <img src="/images/bath.jpg" alt="Grand Bath" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-90" />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+              {/* Gradient overlay at bottom for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+              <div className="absolute bottom-10 left-10 right-10 text-white z-10">
                 <Waves className="w-8 h-8 mb-4 opacity-80" />
-                <h3 className="font-serif text-3xl mb-2">Onsen</h3>
-                <p className="text-white/80 font-light text-sm tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">ANCIENT PINE BATHS</p>
+                <h3 className="font-serif text-3xl mb-2">The Grand Bath</h3>
+                <p className="text-white/80 font-light text-sm tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">SPACIOUS COMMUNAL BATHS</p>
+                <p className="text-white/90 font-light text-base leading-relaxed mt-3 opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500 ease-out">
+                  Spacious communal baths with seasonal yuzu and iris waters to wash away city fatigue.
+                </p>
               </div>
             </div>
 
-            {/* KAISEKI CARD: seikoro_v5_7.jpg */}
+            {/* KYOTO KAISEKI CARD */}
             <div className="group relative h-[600px] overflow-hidden cursor-pointer">
-              <img src="/images/seikoro_v5_7.jpg" alt="Kaiseki" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-90" />
+              <img src="/images/food.jpg" alt="Kyoto Kaiseki" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-90" />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
-              <div className="absolute bottom-10 left-10 text-white">
+              {/* Gradient overlay at bottom for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+              <div className="absolute bottom-10 left-10 right-10 text-white z-10">
                 <Utensils className="w-8 h-8 mb-4 opacity-80" />
-                <h3 className="font-serif text-3xl mb-2">Kaiseki</h3>
-                <p className="text-white/80 font-light text-sm tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">SEASONAL CULINARY ART</p>
-              </div>
-            </div>
-
-            {/* TATAMI CARD: seikoro_v5_17.jpg */}
-            <div className="group relative h-[600px] overflow-hidden cursor-pointer">
-              <img src="/images/seikoro_v5_17.jpg" alt="Tatami" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-90" />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
-              <div className="absolute bottom-10 left-10 text-white">
-                <BedDouble className="w-8 h-8 mb-4 opacity-80" />
-                <h3 className="font-serif text-3xl mb-2">Tatami</h3>
-                <p className="text-white/80 font-light text-sm tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">TRADITIONAL ROOMS</p>
+                <h3 className="font-serif text-3xl mb-2">Kyoto Kaiseki</h3>
+                <p className="text-white/80 font-light text-sm tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">DAILY FROM NISHIKI MARKET</p>
+                <p className="text-white/90 font-light text-base leading-relaxed mt-3 opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500 ease-out">
+                  Seasonal ingredients from Nishiki Market, served in the privacy of your tatami room.
+                </p>
               </div>
             </div>
 
@@ -120,34 +132,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* GUEST REFLECTIONS (TESTIMONIALS) */}
-      <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-12 md:gap-16">
-          <motion.div {...fadeIn} className="space-y-6">
-            <p className="font-serif text-2xl md:text-3xl text-stone-800 leading-relaxed italic">
-              "This ryokan made our trip to Japan, it was truly amazing."
+      {/* TESTIMONIALS */}
+      <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto bg-neutral-50">
+        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+          <motion.div {...fadeIn} className="bg-white p-8 rounded-sm shadow-sm border border-stone-100">
+            <p className="font-serif text-stone-700 italic leading-relaxed text-base mb-6">
+              "A lovely gem in a very central and safe location. The staff knew what I wanted and even took extra steps to help me maximize my stay... I will certainly come back."
             </p>
-            <p className="text-stone-600 text-sm tracking-wider uppercase">
-              — Claire Courtney
-            </p>
+            <div className="flex items-center justify-between">
+              <p className="font-sans text-stone-800 font-medium text-sm">
+                — Joseph (USA)
+              </p>
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                ))}
+              </div>
+            </div>
           </motion.div>
           
-          <motion.div {...fadeIn} className="space-y-6">
-            <p className="font-serif text-2xl md:text-3xl text-stone-800 leading-relaxed italic">
-              "This was the highlight of our trip to Japan!"
+          <motion.div {...fadeIn} className="bg-white p-8 rounded-sm shadow-sm border border-stone-100">
+            <p className="font-serif text-stone-700 italic leading-relaxed text-base mb-6">
+              "Typical Japanese experience. The room is spacious... and kudos to the staff that are beyond helpful and gentle. On top of that the hotel has its own Onsen. We loved it."
             </p>
-            <p className="text-stone-600 text-sm tracking-wider uppercase">
-              — Sarah J.
-            </p>
+            <div className="flex items-center justify-between">
+              <p className="font-sans text-stone-800 font-medium text-sm">
+                — Fabio (Italy)
+              </p>
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                ))}
+              </div>
+            </div>
           </motion.div>
           
-          <motion.div {...fadeIn} className="space-y-6">
-            <p className="font-serif text-2xl md:text-3xl text-stone-800 leading-relaxed italic">
-              "The location was convenient, the service was exceptional, and the bath was deeply relaxing and very beautiful."
+          <motion.div {...fadeIn} className="bg-white p-8 rounded-sm shadow-sm border border-stone-100">
+            <p className="font-serif text-stone-700 italic leading-relaxed text-base mb-6">
+              "Really good ryokan for the price and great location in central Kyoto. The ladies who prepared dinner were so nice!!"
             </p>
-            <p className="text-stone-600 text-sm tracking-wider uppercase">
-              — Steven Z.
-            </p>
+            <div className="flex items-center justify-between">
+              <p className="font-sans text-stone-800 font-medium text-sm">
+                — Mary Taylor (UK)
+              </p>
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -156,47 +189,51 @@ export default function Home() {
       <section className="py-24 px-6 bg-[#F9F7F2]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-serif text-stone-800 text-center mb-12">
-            The Kyoto Sanctuary
+            The Heart of Kyoto
           </h2>
 
           {/* Map Card Container */}
           <div className="relative h-[500px] w-full rounded-sm overflow-hidden shadow-xl group border border-stone-200">
             
-            {/* 1. BACKGROUND IMAGE - No Filters */}
-            <Image
-              src="/images/map_bg.jpg"
-              alt="Seikoro Ryokan Location"
-              fill
-              className="object-cover transition-transform duration-1000 group-hover:scale-105"
-              priority
-            />
+            {/* Clickable Map Image */}
+            <Link 
+              href="https://www.google.com/maps/search/?api=1&query=Ryokan+Hirashin+Kyoto"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute inset-0 w-full h-full"
+            >
+              <Image
+                src="/images/map-hirashin%202.jpg"
+                alt="Ryokan Hirashin Location"
+                fill
+                className="object-cover"
+              />
+            </Link>
 
-            {/* 2. THE LUXURY PIN - Pulsing Location Marker */}
-            {/* Note: I may need to manually tweak top/left later to match the exact street */}
-            <div className="absolute top-[52%] left-[82%] md:left-[68%] -translate-x-1/2 -translate-y-full z-10 pointer-events-none">
-              <div className="relative flex h-8 w-8">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4A5D23] opacity-30"></span>
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  viewBox="0 0 24 24" 
-                  fill="currentColor" 
-                  className="relative inline-flex rounded-full h-8 w-8 text-[#4A5D23] drop-shadow-md"
-                >
-                  <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
-                </svg>
+            {/* The Pin */}
+            <div className="absolute top-[58%] left-[48%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group z-30">
+              <div className="relative flex items-center justify-center">
+                {/* Luxury Glow Ring */}
+                <div className="animate-pulse absolute inline-flex h-8 w-8 rounded-full bg-amber-400/60 duration-[3000ms]"></div>
+                {/* Gold Center Dot */}
+                <div className="relative inline-flex rounded-full h-4 w-4 bg-amber-600 border-2 border-white shadow-lg"></div>
+              </div>
+              {/* Tooltip */}
+              <div className="mt-2 px-2 py-1 bg-white text-xs font-serif font-bold tracking-widest uppercase shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                We Are Here
               </div>
             </div>
 
-            {/* 3. FLOATING CARD */}
+            {/* Location Info Card */}
             <div className="absolute bottom-6 left-6 bg-[#F9F7F2]/95 backdrop-blur-sm p-6 max-w-sm border-l-4 border-[#4A5D23] shadow-lg z-20">
-              <h3 className="text-xl font-serif text-stone-800 mb-2">Seikoro Ryokan</h3>
+              <h3 className="text-xl font-serif text-stone-800 mb-2">Ryokan Hirashin</h3>
               <p className="text-sm text-stone-600 font-sans leading-relaxed mb-4">
-                Nestled by the Kamo River. <br/>
-                A 10-minute walk to Gion's historic streets.
+                Steps from Nishiki Market. <br/>
+                The only traditional Ryokan in the heart of the city.
               </p>
               
               <a 
-                href="https://www.google.com/maps/place/Seikoro/data=!4m2!3m1!1s0x0:0x574cb48a00c9e74c?sa=X&ved=1t:2428&ictx=111" 
+                href="https://www.google.com/maps/search/?api=1&query=Ryokan+Hirashin+Kyoto" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-[#4A5D23] uppercase tracking-widest text-xs font-bold hover:opacity-70 transition-opacity"
@@ -220,13 +257,8 @@ export default function Home() {
         
         {/* CONTACT & LOCATION */}
         <div className="mt-16 pt-16 border-t border-washi/20 max-w-2xl mx-auto space-y-4 text-washi/80 font-light">
-          <p className="text-sm tracking-wider">467 Nishitachibana-cho, Higashiyama-ku, Kyoto</p>
-          <p className="text-sm">
-            <a href="mailto:yoyaku@seikoro.com" className="hover:text-washi transition-colors duration-300">
-              yoyaku@seikoro.com
-            </a>
-          </p>
-          <p className="text-sm tracking-wider">+81 75-561-0771</p>
+          <p className="text-sm tracking-wider">Takoyakushi-dori, Takakura-Nishi, Nakagyo-ku, Kyoto 604-8141</p>
+          <p className="text-sm tracking-wider">+81-75-221-0121</p>
         </div>
       </section>
     </main>

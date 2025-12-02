@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Seikoro Ryokan | The Kyoto Sanctuary",
-  description: "Experience the timeless luxury of Seikoro Ryokan. Established 1831 on the banks of the Kamo River.",
+  title: "Ryokan Hirashin | The Heart of Kyoto",
+  description: "A traditional sanctuary steps from Nishiki Market. Experience authentic Maiko entertainment and Kyoto cuisine.",
 };
 
 export default function RootLayout({
